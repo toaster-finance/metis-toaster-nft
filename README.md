@@ -68,7 +68,6 @@ The system uses Alchemy Webhook for image generation, ensuring efficient and aut
 - Customize profile attributes based on DeFi activities
 - Automated profile image generation
 - On-chain verification of achievements
-- Trade profile NFTs on supported marketplaces
 
 ## NFT Attributes
 
@@ -123,54 +122,56 @@ To install and run the project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone
+   git clone https://github.com/your-username/metis-profile-nft.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd toaster-profile-nft
+   cd metis-profile-nft
    ```
 3. Install dependencies:
    ```bash
    yarn install
    ```
+4. Set up environment variables:
+   ```bash
+   cp .env.sample .env
+   # Edit .env with your configuration
+   ```
 
-## Test
+
+## Development
+
+### Local Testing
 
 ```bash
-    yarn test
+yarn test
 ```
 
-## Deploy on local hardhat node
+### Local Deployment
 
 ```bash
-    npx hardhat node
-    yarn deploy:local
+npx hardhat node
+yarn deploy:local
 ```
+
+### Mainnet Deployment
+
+1. Configure your environment variables in `.env`
+2. Deploy contracts:
+   ```bash
+   yarn deploy:metis
+   ```
+3. Setup attributes:
+   ```bash
+   yarn setup:metis
+   ```
+4. Set resolvers:
+   ```bash
+   yarn resolver:metis
+   ```
+
+> 🔒 **Security**: Make sure to use different private keys for different purposes (deployment, resolver, etc.) and keep them secure.
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
----
-
-# Internal Contents
-
-## How to Deploy (e.g. Metis)
-
-1. Deploy
-
-```
-yarn deploy:metis
-```
-
-2. Setup attributes
-
-```
-yarn setup:metis
-```
-
-3. Set Resolver(s)
-
-```
-yarn resolver:metis
-```
