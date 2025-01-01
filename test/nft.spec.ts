@@ -207,7 +207,7 @@ describe("ToasterItems", function () {
     // Failed to mint profile
     await expect(
       toasterProfile.connect(user2).mintProfile([items[0], items[1], 0])
-    ).to.be.revertedWith("Non-selectable Item");
+    ).to.be.revertedWithCustomError(toasterItems, "AttributeRequired");
 
     // Mint Profile only with selectable items
     await toasterProfile.connect(user2).mintProfile([items[0], 0, items[2]]);
