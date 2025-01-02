@@ -1,6 +1,7 @@
 # Metis Profile NFT
 
-Welcome to the Metis Profile NFT project! This project is designed to manage and interact with profile NFTs for the Toaster Finance platform on Metis Andromeda.
+Welcome to the Metis Profile NFT project! This project is designed to manage and interact with profile NFTs for the Toaster Finance platform on Metis Andromeda.  
+![Screenshot 2025-01-02 at 9 25 42 PM](https://github.com/user-attachments/assets/6266cb56-291a-49f1-9161-985e33434fb3)
 
 # Deployed Contracts
 ### Toaster Profiles 
