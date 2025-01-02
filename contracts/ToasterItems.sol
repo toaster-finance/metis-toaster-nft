@@ -24,6 +24,9 @@ contract ToasterItems is ERC1155, EIP712, Nonces, Ownable, Pausable {
     error AttributeRequired();
     error InvalidResolver(address signer);
 
+    string private _name;
+    string private _symbol;
+
     /************************ TYPE HASH ************************/
     bytes32 private constant MINT_TYPEHASH =
         keccak256(
@@ -41,20 +44,30 @@ contract ToasterItems is ERC1155, EIP712, Nonces, Ownable, Pausable {
     mapping(Attribute => bool) public isOptional;
 
     constructor(
-        string memory name,
+        string memory itemName,
         string memory profileName,
-        string memory symbol,
+        string memory nftSymbol,
         string memory itemUrl,
         string memory profileUrl,
         uint profileMintCap
-    ) ERC1155(itemUrl) Ownable(msg.sender) EIP712(name, "1") {
+    ) ERC1155(itemUrl) Ownable(msg.sender) EIP712(itemName, "1") {
+        _name = itemName;
+        _symbol = nftSymbol;
         profileNft = new ToasterProfile(
             profileName,
-            symbol,
+            nftSymbol,
             profileUrl,
             msg.sender,
             profileMintCap
         );
+    }
+
+    /******** MetaData ********/
+    function name() public view virtual returns (string memory) {
+        return _name;
+    }
+    function symbol() public view virtual returns (string memory) {
+        return _symbol;
     }
 
     /************************ EXTERNAL ************************/
